@@ -7,7 +7,7 @@ from passwordgen_module import passwordgen
 
 class PasswordgenTestCase(unittest.TestCase):
     def test_passwordgen(self):
-        for i in range(0,10000):
+        for i in range(0, 10000):
             result = passwordgen()
             self.assertRegex(result, r"[a-z]")
             self.assertRegex(result, r"[A-Z]")
