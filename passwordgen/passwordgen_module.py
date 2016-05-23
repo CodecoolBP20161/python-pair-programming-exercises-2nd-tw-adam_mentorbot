@@ -1,10 +1,22 @@
 from random import randint
 
+word_list_path = '/usr/share/dict/words'
+
 
 abc = ["0123456789",
        "ABCDEFGHIJKLMNOPQRSTUVXYZ",
        "abcdefghijklmnopqrstuvxyz",
        "!@#$%^&*()?"]
+
+
+def wordsgen():
+    f = open(word_list_path, "r")
+    words = f.readlines()
+
+    word_1 = words[randint(0, len(words))].strip()
+    word_2 = words[randint(0, len(words))].strip()
+
+    return word_1 + " " + word_2
 
 
 def passwordgen():
@@ -24,8 +36,12 @@ def passwordgen():
 
 
 def main():
-    print(passwordgen())
-    return
+    while True:
+        mode = input("Weak or a strong password? (weak/strong)").lower()
+        if mode in ["weak", "strong"]:
+            break
+    password = wordsgen() if mode == "weak" else passwordgen()
+    print(password)
 
 
 if __name__ == '__main__':
