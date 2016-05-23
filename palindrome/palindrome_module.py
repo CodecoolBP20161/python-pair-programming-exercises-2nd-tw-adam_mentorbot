@@ -1,5 +1,6 @@
 def palindrome(str):
-    return
+    str = str.replace(' ', '').lower()
+    return str == str[::-1]
 
 
 def main():
