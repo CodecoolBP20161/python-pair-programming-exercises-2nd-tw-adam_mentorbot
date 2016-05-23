@@ -7,12 +7,13 @@ from passwordgen_module import passwordgen
 
 class PasswordgenTestCase(unittest.TestCase):
     def test_passwordgen(self):
-        result = passwordgen()
-        self.assertRegex(result, r"[a-z]")
-        self.assertRegex(result, r"[A-Z]")
-        self.assertRegex(result, r"[0-9]")
-        self.assertRegex(result, r"[!@#$%^&*()?]")
-        self.assertGreaterEqual(len(result), 8)
+        for i in range(0,10000):
+            result = passwordgen()
+            self.assertRegex(result, r"[a-z]")
+            self.assertRegex(result, r"[A-Z]")
+            self.assertRegex(result, r"[0-9]")
+            self.assertRegex(result, r"[!@#$%^&*()?]")
+            self.assertGreaterEqual(len(result), 8)
 
 
 def main():
